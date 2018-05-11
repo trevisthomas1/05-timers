@@ -4,24 +4,26 @@
 
 <html lang="en-us">
 
-  <head>
+<head>
 
-    <meta charset="UTF-8">
-    <title>What is this?</title>
+  <meta charset="UTF-8">
+  <title>What is this?</title>
 
-  </head>
+</head>
 
-  <body>
+<body>
 
-    <button id="button">CLICK ME!</button>
+  <button id="button">CLICK ME!</button>
 
-    <!-- jQuery -->
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <h1></h1>
 
-    <!-- Begin our custom JavaScript -->
-    <script type="text/javascript">
+  <!-- jQuery -->
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
-    var outside = function() {
+  <!-- Begin our custom JavaScript -->
+  <script type="text/javascript">
+
+    var outside = function () {
 
       //  1. What will be console logged out? What is *this* in this case?
       console.log(this);
@@ -30,7 +32,7 @@
 
     outside();
 
-    $("#button").on("click", function() {
+    $("#button").on("click", function () {
 
       //  2. What will be console logged out? What is *this* in this case?
       console.log(this);
@@ -39,13 +41,13 @@
     var bob = {
       firstName: "Bob",
       lastName: "Smith",
-      whoIsBob: function() {
+      whoIsBob: function () {
         console.log(this);
       },
 
       //  3. Put something inside of the following function so that it works
-      fullName: function() {
-
+      fullName: function () {
+        console.log(this.firstName + " " + this.lastName);
       }
     };
 
@@ -60,24 +62,23 @@
     //  6. Make the "theChosenOne" function, log "Keanu Reeves"
     //     Our code goes below....
 
+    var JohnWick = {
+      firstName: "Keanu",
+      lastName: "Reeves",
 
+      //     Without editing any of the code below.
+      //     Use only the properties in "this."
+      theChosenOne: function () {
 
-    //     Without editing any of the code below.
-    //     Use only the properties in "this."
-    var theChosenOne = function() {
+        console.log(this.firstName + " " + this.lastName);
 
-      console.log(this.firstName + " " + this.lastName);
-
+      }
     };
 
-    theChosenOne();
+    JohnWick.theChosenOne();
 
-    </script>
+  </script>
 
-  </body>
+</body>
 
 </html>
-
-
-
-
