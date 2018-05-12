@@ -1,15 +1,4 @@
-# Sort By File Extension
-
-## File
-
-* *None*
-
-## Instructions
-
-You have an array of filenames with extensions. Sort the files into arrays based on whether or not they are videos or images.
-
-```javascript
-  var files = [
+var files = [
     "pavans_first_birthday.mov",
     "owens_asleep_at_the_computer.jpg",
     "michael_fights_a_polar_bear.mp4",
@@ -28,29 +17,27 @@ You have an array of filenames with extensions. Sort the files into arrays based
     "aww_i_cant_hate_you.png",
     "omg_my_sneakers.avi",
     "cat_you_are_the_worst.mp4"
-  ];
-```
+];
 
-## Info
+var imageExtensions = ["jpg", "gif", "jpeg", "png"];
+var videoExtensions = ["mov", "avi", "mp4", "mpeg", "mpg"];
 
-### Image File Extensions
+var images = [];
+var videos = [];
 
-* jpg
-* gif
-* jpeg
-* png
+function extensionSorter(fileArray) {
+    for (var i = 0; i < fileArray.length; i++) {
+        var fileExt = fileArray[i].split(".").pop();
 
-### Video File Extensions
+        if (imageExtensions.indexOf(fileExt) !== -1) {
+            images.push(fileArray[i]);
+        } else if (videoExtensions.indexOf(fileExt) !== -1) {
+            videos.push(fileArray[i]);
+        }
+    }
 
-* mov
-* avi
-* mpeg
-* mp4
-* mpg
+    console.log(images);
+    console.log(videos);
+};
 
-<!-- 
-create an array for images
-create an array for movies
-create a for loop to check for an extension type
-push string to array based on extension type 
--->
+extensionSorter(files);

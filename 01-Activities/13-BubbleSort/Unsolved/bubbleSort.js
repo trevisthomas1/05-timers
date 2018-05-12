@@ -1,4 +1,3 @@
-
 // Bubble Sort Interview Questions:
 
 
@@ -67,3 +66,34 @@ var unsortedArr = [
   292, 332, 209, 244, 196, 179, 472, 279, 40, 486, 270, 185,
   181, 485, 495, 81, 169, 294, 79, 400, 92, 104, 249
 ];
+
+function bubbleSort(arr) {
+
+  var sorted = false
+
+  while (!sorted) {
+    sorted = true;
+    //loop through the array
+    for (var i = 0; i < arr.length; i++) {
+
+      if (arr[i] > arr[i + 1]) {
+
+        sorted = false;
+        var temp = arr[i];
+        arr[i] = arr[i + 1];
+        arr[i + 1] = temp;
+
+      }
+    }
+  }
+  return arr
+}
+
+document.querySelector("#start").innerText = unsortedArr.join(", ");
+
+var goBtn = document.querySelector("#go");
+
+goBtn.addEventListener("click", function () {
+  var sortedArray = bubbleSort(unsortedArr);
+  document.querySelector("#result").innerText = sortedArray.join(", ");
+});
